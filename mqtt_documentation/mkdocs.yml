@@ -1,0 +1,10 @@
+site_name: Refactor
+
+nav:
+  - Home: index.md
+  - Server Control: server.md
+  - Decice Control: devices.md
+  # Add more sections or pages here
+
+theme:
+  name: mkdocs
