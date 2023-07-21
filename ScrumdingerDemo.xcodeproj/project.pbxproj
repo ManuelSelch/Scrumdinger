@@ -21,12 +21,21 @@
 		C717D2D72A4231F100E196CC /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = C717D2D62A4231F100E196CC /* ding.wav */; };
 		C717D2D92A42333A00E196CC /* DetailAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C717D2D82A42333A00E196CC /* DetailAddView.swift */; };
 		C726A1BF2A422B110006EC3F /* ScrumTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C726A1BE2A422B110006EC3F /* ScrumTimer.swift */; };
+		C72BB4002A6AD79C00F55684 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BB3FF2A6AD79C00F55684 /* ViewState.swift */; };
+		C72BB4022A6AD87A00F55684 /* ViewStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BB4012A6AD87A00F55684 /* ViewStateHandler.swift */; };
+		C72BB4042A6ADEC100F55684 /* DeviceManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BB4032A6ADEC100F55684 /* DeviceManagerView.swift */; };
+		C72BB4062A6ADEEC00F55684 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BB4052A6ADEEC00F55684 /* Device.swift */; };
+		C72BB4082A6AE09000F55684 /* DeviceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BB4072A6AE09000F55684 /* DeviceCardView.swift */; };
+		C72BB40A2A6AE25000F55684 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BB4092A6AE25000F55684 /* MainView.swift */; };
+		C72BB40C2A6AE70900F55684 /* DeviceOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BB40B2A6AE70900F55684 /* DeviceOverview.swift */; };
+		C72BB40E2A6AF16300F55684 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72BB40D2A6AF16300F55684 /* SharedData.swift */; };
 		C7CB71832A40267F000984EB /* ScrumdingerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CB71822A40267F000984EB /* ScrumdingerApp.swift */; };
 		C7CB71872A40268A000984EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7CB71862A40268A000984EB /* Assets.xcassets */; };
 		C7CB718A2A40268A000984EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7CB71892A40268A000984EB /* Preview Assets.xcassets */; };
 		C7DC73AA2A40BA27009B21A9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC73A92A40BA27009B21A9 /* Theme.swift */; };
 		C7DC73AC2A40BA5A009B21A9 /* DailyScrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC73AB2A40BA5A009B21A9 /* DailyScrum.swift */; };
 		C7DC73B02A40BD56009B21A9 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DC73AF2A40BD56009B21A9 /* TrailingIconLabelStyle.swift */; };
+		C7E50ED72A6AC3E600E8F5A4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E50ED62A6AC3E600E8F5A4 /* LoginView.swift */; };
 		C7F401D22A4B3B6900BBAE5D /* RefactorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F401D12A4B3B6900BBAE5D /* RefactorView.swift */; };
 		C7F66A562A4F51A900493A9A /* MQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F66A552A4F51A900493A9A /* MQTT.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +57,14 @@
 		C717D2D62A4231F100E196CC /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		C717D2D82A42333A00E196CC /* DetailAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAddView.swift; sourceTree = "<group>"; };
 		C726A1BE2A422B110006EC3F /* ScrumTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumTimer.swift; sourceTree = "<group>"; };
+		C72BB3FF2A6AD79C00F55684 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewState.swift; path = ScrumdingerDemo/Models/ViewState.swift; sourceTree = SOURCE_ROOT; };
+		C72BB4012A6AD87A00F55684 /* ViewStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStateHandler.swift; sourceTree = "<group>"; };
+		C72BB4032A6ADEC100F55684 /* DeviceManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManagerView.swift; sourceTree = "<group>"; };
+		C72BB4052A6ADEEC00F55684 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		C72BB4072A6AE09000F55684 /* DeviceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCardView.swift; sourceTree = "<group>"; };
+		C72BB4092A6AE25000F55684 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C72BB40B2A6AE70900F55684 /* DeviceOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOverview.swift; sourceTree = "<group>"; };
+		C72BB40D2A6AF16300F55684 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SharedData.swift; path = ScrumdingerDemo/Models/SharedData.swift; sourceTree = SOURCE_ROOT; };
 		C7CB717F2A40267F000984EB /* ScrumdingerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrumdingerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CB71822A40267F000984EB /* ScrumdingerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumdingerApp.swift; sourceTree = "<group>"; };
 		C7CB71862A40268A000984EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +73,7 @@
 		C7DC73AB2A40BA5A009B21A9 /* DailyScrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrum.swift; sourceTree = "<group>"; };
 		C7DC73AF2A40BD56009B21A9 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		C7E0C52F2A4353450085D95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C7E50ED62A6AC3E600E8F5A4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C7F401D12A4B3B6900BBAE5D /* RefactorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefactorView.swift; sourceTree = "<group>"; };
 		C7F66A552A4F51A900493A9A /* MQTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,12 +115,17 @@
 				C717D2D82A42333A00E196CC /* DetailAddView.swift */,
 				C717D2C32A42316F00E196CC /* MeetingHeaderView.swift */,
 				C717D2C42A42316F00E196CC /* ScrumsView.swift */,
+				C72BB4032A6ADEC100F55684 /* DeviceManagerView.swift */,
+				C72BB4072A6AE09000F55684 /* DeviceCardView.swift */,
+				C72BB4012A6AD87A00F55684 /* ViewStateHandler.swift */,
+				C72BB40D2A6AF16300F55684 /* SharedData.swift */,
 				C717D2C52A42316F00E196CC /* ThemeView.swift */,
 				C717D2C62A42316F00E196CC /* ThemePicker.swift */,
 				C717D2C72A42316F00E196CC /* MeetingFooterView.swift */,
 				C717D2C82A42316F00E196CC /* DetailView.swift */,
 				C717D2C92A42316F00E196CC /* DetailEditView.swift */,
 				C7F401D12A4B3B6900BBAE5D /* RefactorView.swift */,
+				C7E50ED62A6AC3E600E8F5A4 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -141,6 +164,8 @@
 				C717D2C02A42316F00E196CC /* Views */,
 				C7DC73A82A40B93A009B21A9 /* Models */,
 				C7CB71822A40267F000984EB /* ScrumdingerApp.swift */,
+				C72BB4092A6AE25000F55684 /* MainView.swift */,
+				C72BB40B2A6AE70900F55684 /* DeviceOverview.swift */,
 				C7CB71862A40268A000984EB /* Assets.xcassets */,
 				C7CB71882A40268A000984EB /* Preview Content */,
 				C7DC73AF2A40BD56009B21A9 /* TrailingIconLabelStyle.swift */,
@@ -159,9 +184,11 @@
 		C7DC73A82A40B93A009B21A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C72BB3FF2A6AD79C00F55684 /* ViewState.swift */,
 				C717D2D32A42318500E196CC /* AVPlayer+Ding.swift */,
 				C7DC73A92A40BA27009B21A9 /* Theme.swift */,
 				C7DC73AB2A40BA5A009B21A9 /* DailyScrum.swift */,
+				C72BB4052A6ADEEC00F55684 /* Device.swift */,
 				C726A1BE2A422B110006EC3F /* ScrumTimer.swift */,
 				C7F66A552A4F51A900493A9A /* MQTT.swift */,
 			);
@@ -285,21 +312,30 @@
 			files = (
 				C7F401D22A4B3B6900BBAE5D /* RefactorView.swift in Sources */,
 				C717D2CF2A42316F00E196CC /* ThemePicker.swift in Sources */,
+				C72BB4002A6AD79C00F55684 /* ViewState.swift in Sources */,
 				C7DC73AC2A40BA5A009B21A9 /* DailyScrum.swift in Sources */,
+				C72BB40C2A6AE70900F55684 /* DeviceOverview.swift in Sources */,
+				C72BB4082A6AE09000F55684 /* DeviceCardView.swift in Sources */,
 				C717D2CD2A42316F00E196CC /* ScrumsView.swift in Sources */,
 				C7DC73B02A40BD56009B21A9 /* TrailingIconLabelStyle.swift in Sources */,
 				C7F66A562A4F51A900493A9A /* MQTT.swift in Sources */,
 				C717D2D42A42318500E196CC /* AVPlayer+Ding.swift in Sources */,
+				C72BB4042A6ADEC100F55684 /* DeviceManagerView.swift in Sources */,
 				C717D2D92A42333A00E196CC /* DetailAddView.swift in Sources */,
 				C7DC73AA2A40BA27009B21A9 /* Theme.swift in Sources */,
 				C717D2D02A42316F00E196CC /* MeetingFooterView.swift in Sources */,
+				C72BB40A2A6AE25000F55684 /* MainView.swift in Sources */,
 				C7CB71832A40267F000984EB /* ScrumdingerApp.swift in Sources */,
 				C717D2D12A42316F00E196CC /* DetailView.swift in Sources */,
+				C72BB4022A6AD87A00F55684 /* ViewStateHandler.swift in Sources */,
+				C72BB40E2A6AF16300F55684 /* SharedData.swift in Sources */,
 				C717D2CA2A42316F00E196CC /* CardView.swift in Sources */,
 				C717D2D22A42316F00E196CC /* DetailEditView.swift in Sources */,
 				C726A1BF2A422B110006EC3F /* ScrumTimer.swift in Sources */,
 				C717D2CB2A42316F00E196CC /* MeetingView.swift in Sources */,
+				C7E50ED72A6AC3E600E8F5A4 /* LoginView.swift in Sources */,
 				C717D2CE2A42316F00E196CC /* ThemeView.swift in Sources */,
+				C72BB4062A6ADEEC00F55684 /* Device.swift in Sources */,
 				C717D2CC2A42316F00E196CC /* MeetingHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

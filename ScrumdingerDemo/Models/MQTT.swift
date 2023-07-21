@@ -9,14 +9,18 @@ import Foundation
 import CocoaMQTT
 
 class MQTTManager: ObservableObject {
+    var sharedData: SharedData
+    
     @Published var isConnected = false
     @Published var isSubscribed = false
     @Published var receivedMessage: String = ""
 
     private var mqtt: CocoaMQTT!
 
-    init() {
-        mqtt = CocoaMQTT(clientID: "yourClientID", host: "manuelselch.de", port: 2069)
+    init(sharedData: SharedData) {
+        self.sharedData = sharedData
+        
+        mqtt = CocoaMQTT(clientID: "yourClientID", host: "manuel.feste-ip.net", port: 38839)
         mqtt.username = "root"
         mqtt.password = "1Ter6esai#Qabc"
         mqtt.keepAlive = 60
@@ -75,6 +79,12 @@ extension MQTTManager: CocoaMQTTDelegate {
         print("Message received: \(message.string ?? "")")
         DispatchQueue.main.async {
             self.receivedMessage = message.string ?? ""
+            
+            if(message.topic == "server/response/deviceData"){
+                self.sharedData.devices = Device.sampleData02
+            }else{
+                self.sharedData.devices = Device.sampleData02
+            }
         }
         // Additional actions after message received
     }

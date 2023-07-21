@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct RefactorView: View {
+    @ObservedObject var viewState: ViewStateHandler
+    
     @State private var currentStep = 1
     @State private var task: String = ""
     @State private var sliderValue: Double = 100
     
-    @StateObject private var mqtt = MQTTManager()
+    @StateObject private var mqtt = MQTTManager(sharedData: SharedData())
     
     var body: some View {
         VStack {
@@ -44,7 +46,7 @@ struct RefactorView: View {
         }
         .onChange(of: sliderValue) { newSliderValue in
             print("slider changed to: \(newSliderValue)")
-            mqtt.publish(topic: "machine/servo_schlitten", message: "\(newSliderValue)")
+            mqtt.publish(topic: "devices/1/motors/1/set", message: "\(newSliderValue)")
         }
         .navigationTitle("Refactor")
     }
@@ -371,6 +373,6 @@ struct ProgressBarButton: View {
 // ********** preview **********
 struct RefactorView_Previews: PreviewProvider {
     static var previews: some View {
-        RefactorView()
+        RefactorView(viewState: ViewStateHandler())
     }
 }
