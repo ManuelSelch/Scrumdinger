@@ -6,10 +6,35 @@
 //
 
 import SwiftUI
-import CocoaMQTT
 
 
 struct ScrumsView: View {
+    @Binding var scrums: [DailyScrum]
+    
+    var body: some View {
+        NavigationView {
+            List {
+                NavigationLink(destination: HomeView(scrums: $scrums)) {
+                    Label("Home", systemImage: "house.fill")
+                }
+                NavigationLink(destination: DetailView(scrum: .constant(DailyScrum.sampleData[0]))) {
+                    Label("Connect", systemImage: "gear")
+                }
+                NavigationLink(destination: RefactorView()) {
+                    Label("Refactor", systemImage: "eyeglasses")
+                }
+            }
+            .navigationTitle("Learn")
+            
+            HomeView(scrums: $scrums)
+            
+            
+            
+        }
+    }
+}
+
+struct HomeView: View {
     @Binding var scrums: [DailyScrum]
     @State private var isPresentingAddView = false
     @State private var addScrum = DailyScrum.emptyScrum
@@ -18,7 +43,6 @@ struct ScrumsView: View {
     
     
     var body: some View {
-        NavigationStack {
             VStack {
                 if mqtt.isConnected {
                     Text("Connected to MQTT broker")
@@ -27,6 +51,55 @@ struct ScrumsView: View {
                     Text("Disconnected from MQTT broker")
                         .foregroundColor(.red)
                 }
+                
+                if mqtt.isSubscribed {
+                    Button(action: {
+                        mqtt.unsubscribeFromTopic("python/mqtt")
+                    }, label: {
+                        Text("Unubscribe from Topic")
+                    })
+                    .padding()
+                    .background(Color(red: 0, green: 0, blue: 0.5))
+                    .foregroundStyle(.white)
+                    .clipShape(Capsule())
+                } else {
+                    Button(action: {
+                        mqtt.subscribeToTopic("python/mqtt")
+                    }, label: {
+                        Text("Subscribe to Topic")
+                    })
+                    .padding()
+                    .background(Color(red: 0, green: 0, blue: 0.5))
+                    .foregroundStyle(.white)
+                    .clipShape(Capsule())
+                }
+                
+                Button(action: {
+                    mqtt.publish(topic: "servo", message: "10")
+                }, label: {
+                    Text("+10")
+                })
+                .padding()
+                .background(Color(red: 0, green: 0, blue: 0.5))
+                .foregroundStyle(.white)
+                .clipShape(Capsule())
+                
+                Button("-10") {
+                    mqtt.publish(topic: "servo", message: "-10")
+                }
+                .padding()
+                .background(Color(red: 0, green: 0, blue: 0.5))
+                .foregroundStyle(.white)
+                .clipShape(Capsule())
+                
+                
+                
+                
+                
+                
+                Text(mqtt.receivedMessage)
+                    .padding()
+                    .multilineTextAlignment(.center)
                 
                 
                 List($scrums) { $scrum in
@@ -63,13 +136,12 @@ struct ScrumsView: View {
                             }
                     }
                 }
-            }
-            .onAppear {
-                mqtt.connect()
-            }
-            .onDisappear {
-                mqtt.disconnect()
-            }
+                .onAppear {
+                    mqtt.connect()
+                }
+                .onDisappear {
+                    mqtt.disconnect()
+                }
         }
     }
 }
@@ -82,103 +154,5 @@ struct ScrumsView_Previews: PreviewProvider {
 
 
 
-class MQTTManager: ObservableObject {
-    @Published var isConnected = false
 
-    private var mqtt: CocoaMQTT!
-
-    init() {
-        mqtt = CocoaMQTT(clientID: "yourClientID", host: "manuelselch.ddns.net", port: 100)
-        mqtt.username = "root"
-        mqtt.password = "1Ter6esai#Qabc"
-        mqtt.keepAlive = 60
-        mqtt.delegate = self
-    }
-
-    func connect() {
-        print(mqtt.connect())
-    }
-
-    func disconnect() {
-        mqtt.disconnect()
-    }
-}
-
-extension MQTTManager: CocoaMQTTDelegate {
-    func mqtt(_ mqtt: CocoaMQTT, didConnect host: String, port: Int) {
-        isConnected = true
-        print("Connected to MQTT broker")
-        // Additional actions after successful connection
-    }
-
-    func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
-        if ack == .accept {
-            isConnected = true
-            print("Connected to MQTT broker")
-            // Additional actions after successful connection
-        } else {
-            isConnected = false
-            print("Unable to connect to MQTT broker")
-        }
-    }
-    
-    func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {
-        print("Message published: \(message.string ?? "")")
-        // Additional actions after message publishing
-    }
-    
-    func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {
-        print("didPublishMessage:")
-    }
-    
-    func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16 ) {
-        print("Message received: \(message.string ?? "")")
-        // Additional actions after message received
-    }
-    
-    func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopics success: NSDictionary, failed: [String]) {
-        print("didSubscribeTopics")
-        // Additional actions after subscription
-    }
-    
-    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {
-        print("Unsubscribed from topic: \(topic)")
-        // Additional actions after unsubscription
-    }
-    
-    func mqttDidPing(_ mqtt: CocoaMQTT) {
-        
-    }
-    
-    func mqttDidReceivePong(_ mqtt: CocoaMQTT) {
-        
-    }
-    
-    func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {
-        isConnected = false
-        print("Disconnected from MQTT broker: \(err?.localizedDescription ?? "")")
-        // Additional actions after disconnection
-    }
-
-    
-    func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topic: String) {
-        print("Subscribed to topic: \(topic)")
-        // Additional actions after subscription
-    }
-    
-
-    
-
-    
-    func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopics topic: [String]) {
-        print("Unsubscribed from topic: \(topic)")
-        // Additional actions after unsubscription
-    }
-
-    func mqtt(_ mqtt: CocoaMQTT, didReceive trust: SecTrust, completionHandler: @escaping (Bool) -> Void) {
-        // Handle SSL/TLS security if required
-        // Set completionHandler to true or false based on trust validation
-        completionHandler(true)
-    }
-}
 
